@@ -1,0 +1,28 @@
+{% extends "base.html" %}<br />
+{% load widget_tweaks %} <br />
+{% block content %} <br />
+<div class="container">
+  <h2 class="text-center">Create A New Lead</h2>
+  <form method="post" class="form">
+    {% csrf_token %} <br />
+    {% for hidden_field in form.hidden_fields %} {{ hidden_field }} {% endfor %}
+    {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }} {% render_field field class="form-control" %} <br />
+      {% if field.help_text %}
+      <small class="form-text text-muted">{{ field.help_text }}</small>
+      {% endif %}
+    </div>
+    {% endfor %}
+    <div class="text-center">
+      <button class="btn btn-primary form-control" type="submit">Submit</button>
+    </div>
+  </form>
+  <p class="lead mt-4 text-center">
+    <a href="{% url 'leads' %}" class="nav-link">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      Back to Leads
+    </a>
+  </p>
+</div>
+{% endblock content %}
