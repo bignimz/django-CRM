@@ -1,0 +1,14 @@
+{% extends "base.html" %}<br />
+{% block content %} <br />
+<div class="container">
+  <h2>Lead Detail</h2>
+  <p class="lead">Fullname: {{lead.first_name}} {{lead.last_name}}</p>
+  <p>Age: {{lead.age}}</p>
+  <p class="lead mt-4">
+    <a href="{% url 'leads' %}" class="nav-link">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      Back to Leads
+    </a>
+  </p>
+</div>
+{% endblock content %}

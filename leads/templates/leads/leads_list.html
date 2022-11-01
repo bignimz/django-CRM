@@ -1,0 +1,30 @@
+{% extends "base.html" %}<br />
+{% block content %} <br />
+<div class="container">
+  <h2>Leads</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for lead in leads %}
+      <tr>
+        <th scope="row">
+          <a class="nav-link" href="/leads/{{lead.id}}/">{{lead.id}}</a>
+        </th>
+        <td>
+          <a class="nav-link" href="/leads/{{lead.id}}/">{{lead.first_name}}</a>
+        </td>
+        <td>{{lead.last_name}}</td>
+        <td>{{lead.age}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}
